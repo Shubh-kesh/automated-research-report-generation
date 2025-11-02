@@ -303,13 +303,8 @@ pipeline {
     
     post {
     always {
-        echo 'Cleaning up workspace...'
-        script {
-            if (fileExists('.')) {
-                cleanWs()
-            } else {
-                echo 'No workspace to clean.'
-            }
+        node {
+            cleanWs()
         }
     }
 }
