@@ -302,15 +302,15 @@ pipeline {
     }
     
     post {
-    always {
-        echo 'Cleaning up workspace...'
-        script {
-            if (fileExists('.')) {
-                cleanWs()
-            } else {
-                echo 'No workspace to clean.'
-            }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+        always {
+            echo 'Cleaning up workspace...'
+            cleanWs()
         }
     }
-}
 }
