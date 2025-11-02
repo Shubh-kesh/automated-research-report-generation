@@ -23,6 +23,7 @@ pipeline {
         TAVILY_API_KEY = credentials('tavily-api-key')
         LLM_PROVIDER = credentials('llm-provider')
         
+        
         // App configuration
         APP_RESOURCE_GROUP = 'research-report-app-rg'
         APP_NAME = 'research-report-app'
