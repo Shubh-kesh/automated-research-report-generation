@@ -310,14 +310,10 @@ pipeline {
         }
         always {
             echo 'Cleaning up workspace...'
-            script {
-                if (fileExists('.')) {
+                node {
+                    echo 'Cleaning up workspace...'
                     cleanWs()
-                } else {
-                    echo 'No workspace to clean.'
                 }
-                
-            }
         }
     }
 }
