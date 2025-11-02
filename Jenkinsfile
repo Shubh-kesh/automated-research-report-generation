@@ -309,9 +309,8 @@ pipeline {
             echo 'Pipeline failed!'
         }
         always {
-            node {
-                cleanWs()
-            }
+            echo 'Cleaning up workspace...'
+            cleanWs()
         }
     }
 }
