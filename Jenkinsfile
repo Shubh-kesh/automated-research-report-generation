@@ -8,6 +8,7 @@ pipeline {
         AZURE_TENANT_ID = credentials('azure-tenant-id')
         AZURE_SUBSCRIPTION_ID = credentials('azure-subscription-id')
         
+        
         // ACR credentials
         ACR_USERNAME = credentials('acr-username')
         ACR_PASSWORD = credentials('acr-password')
@@ -22,7 +23,7 @@ pipeline {
         GROQ_API_KEY = credentials('groq-api-key')
         TAVILY_API_KEY = credentials('tavily-api-key')
         LLM_PROVIDER = credentials('llm-provider')
-        
+
         
         // App configuration
         APP_RESOURCE_GROUP = 'research-report-app-rg'
