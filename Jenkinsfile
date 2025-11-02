@@ -316,6 +316,7 @@ pipeline {
                 } else {
                     echo 'No workspace to clean.'
                 }
+                
             }
         }
     }
