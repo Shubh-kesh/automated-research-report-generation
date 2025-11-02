@@ -302,10 +302,16 @@ pipeline {
     }
     
     post {
-    always {
-        node {
-            cleanWs()
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+        always {
+            node {
+                cleanWs()
+            }
         }
     }
-}
 }
