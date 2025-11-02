@@ -1,0 +1,6 @@
+{
+    "python-envs.pythonProjects": [],
+  "terminal.integrated.env.windows": {
+      "PATH": "/opt/homebrew/bin/az"
+}
+}

@@ -2,15 +2,16 @@
 
 # Azure Deployment Script for Jenkins
 # Deploys Jenkins with Python 3.11 and Azure CLI for Research Report Generation CI/CD
+# to run jenkins over the azure
 
 set -e
 
 # Configuration
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
-STORAGE_ACCOUNT="reportjenkinsstore"
+STORAGE_ACCOUNT="reportjenkinsstoree"
 FILE_SHARE="jenkins-data"
-ACR_NAME="reportjenkinsacr"
+ACR_NAME="reportjenkinsacr1"
 CONTAINER_NAME="jenkins-research-report"
 DNS_NAME_LABEL="jenkins-research-$(date +%s | tail -c 6)"
 JENKINS_IMAGE_NAME="custom-jenkins"
@@ -20,6 +21,21 @@ echo "╔═══════════════════════�
 echo "║  Deploying Jenkins for Research Report Generation     ║"
 echo "╚════════════════════════════════════════════════════════╝"
 echo ""
+
+# Ensure the correct subscription is selected (set AZURE_SUBSCRIPTION_ID env var or hardcode)
+SUBSCRIPTION_ID="${AZURE_SUBSCRIPTION_ID:-03d2489b-ced2-4cb3-ae05-4f96224be4de}"
+echo "Setting Azure subscription to: $SUBSCRIPTION_ID"
+if ! az account set --subscription "$SUBSCRIPTION_ID" 2>/dev/null; then
+  echo "ERROR: Unable to set subscription ${SUBSCRIPTION_ID}."
+  echo "Run 'az login' and verify the subscription is available with 'az account list --all'."
+  az account list --all --output table
+  exit 1
+fi
+
+# Optional: show current account/tenant for debugging
+echo "Active account:"
+az account show --output table
+
 
 # Create Resource Group
 echo "Creating Resource Group: $RESOURCE_GROUP..."
