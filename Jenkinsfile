@@ -18,7 +18,6 @@ pipeline {
         STORAGE_ACCOUNT_KEY = credentials('storage-account-key')
         
         // API Keys (add these to Jenkins)
-        OPENAI_API_KEY = credentials('OPENAI_API_KEY')
         GOOGLE_API_KEY = credentials('GOOGLE_API_KEY')
         GROQ_API_KEY = credentials('GROQ_API_KEY')
         TAVILY_API_KEY = credentials('tavily-api-key')
@@ -182,7 +181,6 @@ pipeline {
                             --name $APP_NAME \
                             --resource-group $APP_RESOURCE_GROUP \
                             --secrets \
-                              openai-api-key=$OPENAI_API_KEY \
                               google-api-key=$GOOGLE_API_KEY \
                               groq-api-key=$GROQ_API_KEY \
                               tavily-api-key=$TAVILY_API_KEY
@@ -193,7 +191,6 @@ pipeline {
                             --name $APP_NAME \
                             --resource-group $APP_RESOURCE_GROUP \
                             --set-env-vars \
-                              OPENAI_API_KEY=secretref:openai-api-key \
                               GOOGLE_API_KEY=secretref:google-api-key \
                               GROQ_API_KEY=secretref:groq-api-key \
                               TAVILY_API_KEY=secretref:tavily-api-key \
@@ -206,8 +203,6 @@ pipeline {
                           az containerapp secret set \
                             --name $APP_NAME \
                             --resource-group $APP_RESOURCE_GROUP \
-                            --secrets \
-                              openai-api-key=$OPENAI_API_KEY \
                               google-api-key=$GOOGLE_API_KEY \
                               groq-api-key=$GROQ_API_KEY \
                               tavily-api-key=$TAVILY_API_KEY
@@ -255,7 +250,6 @@ pipeline {
                           --name $APP_NAME \
                           --resource-group $APP_RESOURCE_GROUP \
                           --secrets \
-                            openai-api-key=$OPENAI_API_KEY \
                             google-api-key=$GOOGLE_API_KEY \
                             groq-api-key=$GROQ_API_KEY \
                             tavily-api-key=$TAVILY_API_KEY
@@ -266,7 +260,6 @@ pipeline {
                           --name $APP_NAME \
                           --resource-group $APP_RESOURCE_GROUP \
                           --set-env-vars \
-                            OPENAI_API_KEY=secretref:openai-api-key \
                             GOOGLE_API_KEY=secretref:google-api-key \
                             GROQ_API_KEY=secretref:groq-api-key \
                             TAVILY_API_KEY=secretref:tavily-api-key \
