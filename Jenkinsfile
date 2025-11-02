@@ -7,7 +7,7 @@ pipeline {
         AZURE_CLIENT_SECRET = credentials('azure-client-secret')
         AZURE_TENANT_ID = credentials('azure-tenant-id')
         AZURE_SUBSCRIPTION_ID = credentials('azure-subscription-id')
-        
+
         
         // ACR credentials
         ACR_USERNAME = credentials('acr-username')
@@ -18,11 +18,11 @@ pipeline {
         STORAGE_ACCOUNT_KEY = credentials('storage-account-key')
         
         // API Keys (add these to Jenkins)
-        OPENAI_API_KEY = credentials('openai-api-key')
-        GOOGLE_API_KEY = credentials('google-api-key')
-        GROQ_API_KEY = credentials('groq-api-key')
+        OPENAI_API_KEY = credentials('OPENAI_API_KEY')
+        GOOGLE_API_KEY = credentials('GOOGLE_API_KEY')
+        GROQ_API_KEY = credentials('GROQ_API_KEY')
         TAVILY_API_KEY = credentials('tavily-api-key')
-        LLM_PROVIDER = credentials('llm-provider')
+        LLM_PROVIDER = credentials('LLM_PROVIDER')
 
         
         // App configuration
